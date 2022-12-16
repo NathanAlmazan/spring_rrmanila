@@ -1,0 +1,18 @@
+extend type Query {
+    allDistricts: [RevenueDistrict]
+    districtByNum(districtNum: Int!): RevenueDistrict
+}
+
+type RevenueDistrict {
+    number: Int!
+    name: String!
+    zones: [Zones]
+    offices: [BirOffice]
+}
+
+type Zones {
+    id: ID,
+    number: Int!
+    barangay: String!
+    boundary: String
+}

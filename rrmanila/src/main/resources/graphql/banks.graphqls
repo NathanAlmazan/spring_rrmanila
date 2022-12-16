@@ -1,0 +1,22 @@
+extend type Query {
+    banksByDistrict(district: Int!): [Banks]
+    banksByAddress(address: String!): [Banks]
+}
+
+type Banks {
+    id: ID
+    code: String
+    branch: String
+    buildingNum: String
+    street: String
+    district: String
+    city: String
+    details: BankDetails
+    revenueDistrict: RevenueDistrict
+}
+
+type BankDetails {
+    key: ID
+    name: String
+    logo: String
+}

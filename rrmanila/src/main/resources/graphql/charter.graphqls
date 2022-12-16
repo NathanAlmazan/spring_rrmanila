@@ -1,0 +1,54 @@
+extend type Query {
+    allCharter(limit: Int): [Charter]
+    charterByUuid(uuid: String!): Charter
+    searchCharter(search: String!): [Charter]
+}
+
+type Charter {
+    uuid: String!
+    title: String!
+    description: String!
+    fee: Float!
+    duration: String!
+    score: Float
+    locations: [Location]
+    applicants: [Category]
+    process: [Process]
+}
+
+type Location {
+    id: ID
+    applicant: String!
+    location: String!
+}
+
+type Category {
+    id: ID
+    name: String!
+    additional: Boolean!
+    requirements: [Requirements]
+}
+
+type Requirements {
+    id: ID
+    name: String!
+    references: [References]
+}
+
+type Process {
+    id: ID
+    step: Int!
+    description: String!
+    processType: String!
+    duration: String
+    agent: String
+    paid: Boolean!
+    references: [References]
+}
+
+type References {
+    id: ID
+    keyword: String
+    definition: String
+    referenceType: String
+}

@@ -1,0 +1,26 @@
+extend type Query {
+    allOffices: [BirOffice]
+    officeById(officeId: Int!): BirOffice
+}
+
+type BirOffice {
+    id: ID
+    name: String!
+    address: String!
+    email: String!
+    district: RevenueDistrict
+    directory: [ContactPerson]
+}
+
+type ContactPerson {
+    id: ID
+    name: String!
+    position: String!
+    contacts: [Contacts]
+}
+
+type Contacts {
+    id: ID
+    number: String!
+    contactType: String!
+}
